@@ -11,21 +11,22 @@ const Index = () => {
         board: false,
     });
 
-    const fetchData = async () => {
-        const response = await axios.get('http://localhost:3306/test', {})
-        console.log(response.data);
-    }
+    const [test, setTest] = useState();
 
     useEffect(() => {
-        fetchData();
-    }, [])
+        axios.get("http://localhost:8080/test/cors")
+            .then(res => {
+                setTest(res.data)
+            })
+            .catch(err => console.log(err.message))
+    }, []);
 
     return (
         <div className='container'>
             <div id='total_info'>
                 <div id='privacy'>
                     <span className='info_title'>Name</span>
-                    <p>테스트 : </p>
+                    <p>테스트 : {test}</p>
                     <span className='info_title'>Github</span>
                     <p>https://github.com/JYH94</p>
                     <span className='info_title'>velog</span>
