@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Index.css';
 import SelectProject from './selectProject/SelectProject';
+import axios from "axios";
 
 
 const Index = () => {
@@ -10,15 +11,21 @@ const Index = () => {
         board: false,
     });
 
+    const fetchData = async () => {
+        const response = await axios.get('http://localhost:3306/test', {})
+        console.log(response.data);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
     return (
         <div className='container'>
             <div id='total_info'>
                 <div id='privacy'>
-                    {/* <p><span className='info_title'>Name</span> 주용현</p>
-                    <p><span className='info_title'>Github</span> https://github.com/JYH94</p>
-                    <p><span className='info_title'>velog</span> https://velog.io/@dydgusc66/posts</p> */}
                     <span className='info_title'>Name</span>
-                    <p>주용현</p>
+                    <p>테스트 : </p>
                     <span className='info_title'>Github</span>
                     <p>https://github.com/JYH94</p>
                     <span className='info_title'>velog</span>
