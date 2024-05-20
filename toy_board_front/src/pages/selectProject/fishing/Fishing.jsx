@@ -9,6 +9,7 @@ const loadScript = (url) => {
         script.src = url;
         script.onload = resolve;
         script.onerror = reject;
+        
         document.head.appendChild(script);
     });
 };
@@ -18,7 +19,7 @@ const Fishing = () => {
 
     const apiKey = process.env.REACT_APP_KAKAOMAP_API_KEY;
     const [point, setPoint] = useState();
-    
+
 
     useEffect(() => {
         const loadKakaoMap = async () => {
