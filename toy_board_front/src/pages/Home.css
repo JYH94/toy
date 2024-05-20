@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.App {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    width: 70%;
+    padding: 20px;
+}
+
+.contentBox {
+    border: 1px solid;
+    border-radius: 20px;
+    height: 100%;
+}
+
+/* ====================================== */

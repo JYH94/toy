@@ -1,0 +1,40 @@
+#total_info {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+#total_info>div {
+    padding: 40px;
+    border: 1px solid;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#privacy {
+    height: 30%;
+}
+
+#privacy>p {
+    margin-bottom: 10px;
+}
+
+#menu_bar {
+    height: 70%;
+    white-space: nowrap;
+}
+
+#menu_bar>div {
+    margin-bottom: 20px;
+}
+
+#menu_bar li {
+    margin-left: 20px;
+}
+
+.info_title {
+    font-weight: bold;
+    font-size: 20px;
+}

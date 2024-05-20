@@ -1,8 +1,7 @@
 /* ====================================== */
 #selectProject {
     width: 75%;
-    height: 100vh;
-    padding: 10px;
+    height: 100%;
 }
 
 #projectBox {
@@ -15,12 +14,14 @@
     padding: 20px;
 }
 
-#projectBox>li {
+#projectBox>a {
     width: calc(50% - 10px);
     border-radius: 50px;
     border: 1px solid black;
+    color: black;
+    text-decoration: none;
 }
 
-#projectBox>li:nth-child(odd) {
+#projectBox>a:nth-child(odd) {
     margin-right: 20px;
 }
