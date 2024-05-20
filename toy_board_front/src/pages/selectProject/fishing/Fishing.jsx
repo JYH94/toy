@@ -18,6 +18,7 @@ const Fishing = () => {
 
     const apiKey = process.env.REACT_APP_KAKAOMAP_API_KEY;
     const [point, setPoint] = useState();
+    
 
     useEffect(() => {
         const loadKakaoMap = async () => {
