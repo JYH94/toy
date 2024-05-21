@@ -4,7 +4,8 @@ const Board = () => {
     return (
         <div className="container">
             <div className="contentBox">
-                22222222222222222222
+                <h1>자유게시판</h1>
+                
             </div>
         </div>
     )
