@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.toy_board_server.entity.FishingPoint;
-import com.example.toy_board_server.repository.FishingRepository;
+import com.example.toy_board_server.repository.FishingRepositoryJPA;
 
 import lombok.AllArgsConstructor;
 
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class FishingServiceImpl implements FishingService{
 
-	private final FishingRepository fishingRepository;
+	private final FishingRepositoryJPA fishingRepository;
 	
 	@Override
 	public List<FishingPoint> selectAll() {
@@ -29,6 +29,11 @@ public class FishingServiceImpl implements FishingService{
 		List<FishingPoint> reCheck = fishingRepository.findAll();
 		System.out.println(reCheck.size());
 		return reCheck;
+	}
+	
+	@Override
+	public List<FishingPoint> selectWhereKeyword(String pointname) {
+		return fishingRepository.findByPointNameContaining(pointname);
 	}
 	
 }

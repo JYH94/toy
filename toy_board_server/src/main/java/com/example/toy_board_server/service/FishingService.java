@@ -8,4 +8,5 @@ public interface FishingService {
 	
 	List<FishingPoint> selectAll();
 	List<FishingPoint> save(FishingPoint entity);
+	List<FishingPoint> selectWhereKeyword(String pointname);
 }

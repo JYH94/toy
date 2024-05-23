@@ -5,9 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Configuration
 public class WebConfig {
@@ -31,4 +37,14 @@ public class WebConfig {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+	
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@Bean
+	public JPAQueryFactory jpaQueryFactory() {
+		return new JPAQueryFactory(entityManager);
+	}
+	
 }

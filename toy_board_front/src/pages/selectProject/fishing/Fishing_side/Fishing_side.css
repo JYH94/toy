@@ -1,0 +1,101 @@
+.insert_AddrBox {
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 20px;
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    word-break: keep-all;
+    overflow-y: auto;
+}
+
+.insert_AddrBox input {
+    text-indent: 3px;
+    width: 100%;
+    height: 30px;
+}
+
+.input_for_insert p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input_for_insert {
+    margin-bottom: 20px;
+}
+
+.latlng>input {
+    width: 50%;
+}
+
+.btnBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnBox>button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    width: 45%;
+    padding: 5px 2px;
+}
+
+.input_for_search {
+    margin-bottom: 70px;
+    display: flex;
+}
+
+.input_for_search>button {
+    margin-left: 10px;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.bAddr {
+    height: 90px;
+}
+
+.insert_AddrBox #searchBox{
+    margin-bottom: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.insert_AddrBox #searchBox input {
+    width: 80%;
+}
+
+.insert_AddrBox #searchBox button {
+    padding: 3px;
+    background-color: rgb(196, 224, 255);
+    border: none;
+    border-radius: 7px;
+}
+
+/* ======================================================= */
+.insert_AddrBox::-webkit-scrollbar {
+    width: 12px;
+    background-color: white;
+}
+
+.insert_AddrBox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    /* background-color: #F5F5F5; */
+    background-color: white;
+}
+
+.insert_AddrBox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgb(196, 224, 255);
+}
+
+/* 출처 : https: //www.happycgi.com/16566 */
+/* ======================================================= */
