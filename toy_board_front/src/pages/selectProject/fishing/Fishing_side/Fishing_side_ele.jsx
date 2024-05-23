@@ -1,11 +1,15 @@
 
 import './Fishing_side_ele.css'
+import { whichPoint } from '../MapScript'
 
 const Fishing_side_ele = ({point}) => {
     
+    const selectWhichPoint = () => {
+        whichPoint(point);
+    }
 
     return (
-        <div className='point_ele'>
+        <div className='point_ele' onClick={selectWhichPoint}>
             <div>포인트명</div>
             <div>설명</div>
             <div>주소</div>

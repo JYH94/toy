@@ -30,4 +30,25 @@ li {
 }
 
 
+.forHelp {
+    color: grey;
+    word-break: keep-all;
+    margin-bottom: 50px;
+}
+
+.forHelp_span {
+    color: orange;
+    margin-right: 5px;
+}
+
+.manual {
+    border: 1px solid rgba(128, 128, 128, 0.251);
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 0px;
+}
+
+
+
+
 /* ====================================== */

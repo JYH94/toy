@@ -43,12 +43,11 @@
     padding: 5px 2px;
 }
 
-.input_for_search {
-    margin-bottom: 70px;
+.insert_AddrBox .input_for_search {
     display: flex;
 }
 
-.input_for_search>button {
+.insert_AddrBox .input_for_search>button {
     margin-left: 10px;
 }
 
@@ -68,7 +67,7 @@
 }
 
 .insert_AddrBox #searchBox input {
-    width: 80%;
+    width: 80% !important;
 }
 
 .insert_AddrBox #searchBox button {
@@ -99,3 +98,32 @@
 
 /* 출처 : https: //www.happycgi.com/16566 */
 /* ======================================================= */
+
+
+
+.insert_AddrBox #selectInsertOrSelect {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.insert_AddrBox #selectInsertOrSelect>div {
+    width: 47%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+.insert_AddrBox .input_for_search>input {
+    width: 80%;
+}
+.insert_AddrBox .input_for_search>button {
+    background-color: rgb(196, 224, 255);
+    border: none;
+    padding: 5px 10px;
+    width: 20%;
+}

@@ -39,18 +39,20 @@ public class FishingController {
 	}
 
 //	@GetMapping("/selectwhere")
-//	public ResponseEntity<?> selectWhereKeyword(@RequestParam String pointname) {
+//	public ResponseEntity<?> selectWhereKeyword(ForSearch module) {
 //		ResponseEntity<?> result = null;
-//		List<FishingPoint> list = fishingService.selectWhereKeyword(pointname);
-//		result = ResponseEntity.status(HttpStatus.OK).body(fishingService.selectWhereKeyword(pointname));
+//		List<FishingPoint> list = fishingService.selectWhereKeyword(module.getKeyword());
+//		result = ResponseEntity.status(HttpStatus.OK).body(list);
 //		return result;
 //	}
-	
+//	
 	
 	@GetMapping("/selectwhere")
 	public ResponseEntity<?> selectWhere(ForSearch module) {
+		ResponseEntity<?> result = null;
+		System.out.println(fishingService.selectWhere(module));
+		result = ResponseEntity.status(HttpStatus.OK).body(fishingService.selectWhere(module));
 		
-		System.out.println(module);
-		return null;
+		return result;
 	}
 }

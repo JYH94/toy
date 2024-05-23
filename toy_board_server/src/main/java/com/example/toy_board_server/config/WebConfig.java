@@ -9,6 +9,7 @@ import org.springframework.web.filter.CorsFilter;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -39,7 +40,7 @@ public class WebConfig {
     }
 	
 	
-	@PersistenceContext
+	@Autowired
 	private EntityManager entityManager;
 	
 	@Bean
