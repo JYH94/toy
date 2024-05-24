@@ -1,0 +1,48 @@
+.topTitle {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(196, 224, 255);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.topTitle>div {
+    position: absolute;
+}
+
+.topTitle>div>label {
+    margin-right: 10px;
+}
+
+.board_contentBox {
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    height: calc(89%);
+    width: 100%;
+}
+
+.board_contentBox>div {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 5%;
+}
+.board_contentBox>div>div {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board_contentBox>div>div:nth-child(1),.board_contentBox>div>div:nth-child(6) {
+    width: 10%;
+}
+
+.board_contentBox>div>div:nth-child(2),.board_contentBox>div>div:nth-child(4) {
+    width: 15%;
+}
+

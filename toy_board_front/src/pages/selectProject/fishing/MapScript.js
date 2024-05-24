@@ -1,8 +1,7 @@
-import { api } from "../../model";
 
 
 // ** DB에 등록된 포인트 기준으로 맵생성
-export function makeMarker(pointList,setPoint) {
+export function makeMarker(pointList, setPoint, setModal) {
     var { kakao } = window;
 
 
@@ -49,9 +48,14 @@ export function makeMarker(pointList,setPoint) {
                 `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">${place.pointName}</span>`
                 + '<br>' +
                 `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">[${place.pointDesc}]</span>`
-                + place.pointAddr
+                + place.pointAddr +
+                (setModal ? '<div onclick="setModal(true)">상세보기</div>' : '') +
                 + '</div>');
             infowindow.open(map, marker);
+
+            if(setModal) {
+                setModal(true);
+            }
         });
     }
 
@@ -78,7 +82,7 @@ export function makeMarker(pointList,setPoint) {
         // 마커 위치를 클릭한 위치로 옮깁니다
         marker.setPosition(latlng);
 
-        if(setPoint) {
+        if (setPoint) {
             setPoint(prevPoint => ({
                 ...prevPoint,
                 pointLat: latlng.getLat(),
@@ -86,7 +90,6 @@ export function makeMarker(pointList,setPoint) {
             }));
         }
     });
-
 
     kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
         // 클릭한 좌표를 변수에 저장
@@ -115,6 +118,8 @@ export function makeMarker(pointList,setPoint) {
             }
         });
     });
+
+
 }
 
 
@@ -127,53 +132,49 @@ export function whichPoint(point) {
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
         mapOption = {
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 100 // 지도의 확대 레벨
+            level: 3 // 지도의 확대 레벨
         };
 
     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-    var positions = [];
-
-    positions.push({
-        title: point.pointName,
-        latlng: new kakao.maps.LatLng(point.pointLat, point.pointLng)
-    })
 
     var bounds = new kakao.maps.LatLngBounds();
 
-    displayMarker(point);
-    bounds.extend(new kakao.maps.LatLng(point.pointLat, point.pointLng));
+    // 마커를 생성하고 지도에 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(point.pointLat, point.pointLng)
+    });
 
-    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+    bounds.extend(new kakao.maps.LatLng(point.pointLat, point.pointLng));
     map.setBounds(bounds);
 
-
-
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-    function displayMarker(place) {
 
-        // 마커를 생성하고 지도에 표시합니다
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(place.pointLat, place.pointLng)
-        });
-        // 마커에 클릭이벤트를 등록합니다
-        kakao.maps.event.addListener(marker, 'click', function () {
-            console.log(place.pointAddr);
-            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-            infowindow.setContent(
-                '<div style="padding:5px;font-size:12px;height:70px">' +
-                `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">${place.pointName}</span>`
-                + '<br>' +
-                `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">[${place.pointDesc}]</span>`
-                + place.pointAddr
-                + '</div>');
-            infowindow.open(map, marker);
-        });
-    }
+    // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+    var content =
+        '<div style="padding:5px;font-size:12px;height:70px">' +
+        `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">${point.pointName}</span>`
+        + '<br>' +
+        `<span style="font-weight:bold; display: inline-block; text-align: center; width: 100%;">[${point.pointDesc}]</span>`
+        + point.pointAddr + '</div>';
+
+    infowindow.setContent(content);
+    infowindow.open(map, marker);
+
+    kakao.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+    });
 }
 
 
-export const searchInKaKao = (keyword,setPoint) => {
+
+
+
+
+
+
+export const searchInKaKao = (keyword, setPoint) => {
 
 
     var { kakao } = window;
@@ -243,9 +244,6 @@ export const searchInKaKao = (keyword,setPoint) => {
                 pointLng: latlng.getLng()
             }));
         }
-
-        var iwContent = '<div style="padding:5px;">포인트 등록 중! <br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-            iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
     });
 
 

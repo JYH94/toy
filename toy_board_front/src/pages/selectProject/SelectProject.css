@@ -1,13 +1,13 @@
 /* ====================================== */
 #selectProject {
-    width: 75%;
+    width: 80%;
     height: 100%;
 }
 
 #projectBox {
     display: flex;
     flex-wrap: wrap;
-    border-radius: 50px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     background-color: white;
@@ -15,13 +15,50 @@
 }
 
 #projectBox>a {
-    width: calc(50% - 10px);
-    border-radius: 50px;
-    border: 1px solid black;
+    width: calc(33% - 10px);
+    height: calc(50% - 5px);
+    border-radius: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
     color: black;
     text-decoration: none;
+    padding: 20px;
 }
 
-#projectBox>a:nth-child(odd) {
+#projectBox .forHelp {
+    margin-bottom: 0;
+}
+#projectBox h3 {
+    margin-bottom: 10px;
+}
+
+#projectBox #mapImg {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#projectBox .manual {
+    margin-top: 0;
+    box-shadow: none;
+    padding: 10px;
+}
+
+#projectBox>a:nth-child(n+1):nth-child(-n+3) {
+    margin-bottom: 10px;
+}
+#projectBox>a:nth-child(1),
+#projectBox>a:nth-child(2),
+#projectBox>a:nth-child(4),
+#projectBox>a:nth-child(5)
+ {
+    margin-right: 10px;
+}
+
+/* #projectBox>a:nth-child(odd) {
     margin-right: 20px;
 }
+
+
+
+#projectBox>a:nth-child(n+3):nth-child(-n+4) {
+    margin-top: 20px;
+} */

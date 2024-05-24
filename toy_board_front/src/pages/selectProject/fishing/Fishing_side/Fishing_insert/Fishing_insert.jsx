@@ -51,7 +51,15 @@ const Fishing_insert = ({ setSelectOrInsert }) => {
         api('/fishing/save', 'post', point)
             .then(res => {
                 makeMarker(res.data, setPoint);
-                console.log('ok');
+                console.log('Insert OK');
+                setPoint({
+                    pointName: '',
+                    pointDesc: '',
+                    pointLat: '',
+                    pointLng: '',
+                    pointAddr: ''
+                })
+                alert('포인트 등록 완료!')
             })
             .catch(err => {
                 alert(err.message + `\n잠시후 다시 시도하세요`);

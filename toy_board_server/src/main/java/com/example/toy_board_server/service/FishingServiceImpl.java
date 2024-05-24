@@ -28,6 +28,9 @@ public class FishingServiceImpl implements FishingService{
 	
 	@Override
 	public List<FishingPoint> save(FishingPoint entity) {
+		if(entity.getPointAddr() == null || entity.getPointAddr() == "") {
+			entity.setPointAddr("상세주소를 찾을 수 없습니다.");
+		}
 		fishingRepositoryJPA.save(entity);
 		List<FishingPoint> reCheck = fishingRepositoryJPA.findAll();
 		return reCheck;

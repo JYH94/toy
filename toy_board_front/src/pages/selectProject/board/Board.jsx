@@ -1,6 +1,8 @@
+import './Board.css';
 import { useEffect } from "react";
 import { api } from "../../model";
 import { useState } from "react";
+import Board_side from './board_side/Board_side';
 
 
 const Board = () => {
@@ -24,9 +26,9 @@ const Board = () => {
             [e.target.name]: e.target.value
         }))
 
-        
+
     }
-    
+
     const changeFile = (e) => {
         setPosting(pre => ({
             ...pre,
@@ -54,25 +56,53 @@ const Board = () => {
     return (
         <div className="container">
             <div className="contentBox">
-                <h1>자유게시판</h1>
-
-                <div className="board_main">
-                    <div>제목
-                        <input type="text" name="title" onChange={changePosting} />
-                    </div>
-                    <div>작성자
-                        <input type="text" name="writer" onChange={changePosting} />
-                    </div>
+                <div className="topTitle">
                     <div>
-                        <textarea name="content" id="" cols="30" rows="10" onChange={changePosting}></textarea>
+                        <label htmlFor="">회원&nbsp;
+                            <input type="checkbox" />
+                        </label>
+                        <label htmlFor="">비회원&nbsp;
+                            <input type="checkbox" />
+                        </label>
                     </div>
-                    <div>
-                        <input type="file" name="image" onChange={changeFile} />
-                    </div>
-                    <button onClick={submitPosting}>제출</button>
+                    <h3>조행기</h3>
                 </div>
-
+                <div className='board_contentBox'>
+                    <div>
+                        <div>seq</div>
+                        <div>분류</div>
+                        <div>제목</div>
+                        <div>작성자</div>
+                        <div>작성일시</div>
+                        <div>조회수</div>
+                    </div>
+                    <div>
+                        <div>seq</div>
+                        <div>분류</div>
+                        <div>제목</div>
+                        <div>작성자</div>
+                        <div>작성일시</div>
+                        <div>조회수</div>
+                    </div>
+                    <div>
+                        <div>seq</div>
+                        <div>분류</div>
+                        <div>제목</div>
+                        <div>작성자</div>
+                        <div>작성일시</div>
+                        <div>조회수</div>
+                    </div>
+                    <div>
+                        <div>seq</div>
+                        <div>분류</div>
+                        <div>제목</div>
+                        <div>작성자</div>
+                        <div>작성일시</div>
+                        <div>조회수</div>
+                    </div>
+                </div>
             </div>
+            <Board_side />
         </div>
     )
 }

@@ -23,13 +23,11 @@ public class FishingRepositoryImpl implements FishingRepository{
 
 	@Override
 	public List<FishingPoint> selectWhere(ForSearch module) {
-		System.out.println(module);
 		List<FishingPoint> check = jPAQueryFactory.select(fishingPoint)
 				.from(fishingPoint)
 				.where(Expressions.stringPath(module.getColumn()).contains(module.getKeyword()))
 				.fetch();
 		
-		System.out.println(check);
 		return check;
 	}
 

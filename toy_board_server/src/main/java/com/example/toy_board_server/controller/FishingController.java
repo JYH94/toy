@@ -50,7 +50,7 @@ public class FishingController {
 	@GetMapping("/selectwhere")
 	public ResponseEntity<?> selectWhere(ForSearch module) {
 		ResponseEntity<?> result = null;
-		System.out.println(fishingService.selectWhere(module));
+		System.out.println(module);
 		result = ResponseEntity.status(HttpStatus.OK).body(fishingService.selectWhere(module));
 		
 		return result;
